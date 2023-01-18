@@ -1,0 +1,19 @@
+<ErkisWidget@Button>
+    angle: 0
+    canvas.before:
+        PushMatrix
+        Rotate:
+            angle: root.angle
+            axis: 0, 0, 1
+            origin: root.center
+    canvas.after:
+        PopMatrix
+
+FloatLayout:
+    ErkisWidget:
+        angle: 45
+        size_hint: .2, .1
+        pos_hint: {"center_x: .5, "center_y": .5}
+        text: "Spin me!"
+        on_release:
+            app.animate_the_widget(self)
